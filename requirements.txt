@@ -8,7 +8,6 @@ cffi==1.15.1
 charset-normalizer==3.1.0
 click==8.1.7
 clingo==5.6.2
-clintest==0.1.0.dev0
 exceptiongroup==1.1.1
 filelock==3.10.4
 gitdb==4.0.10
