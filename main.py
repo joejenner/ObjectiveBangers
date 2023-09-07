@@ -93,22 +93,15 @@ if access_token:
                     # Create playlist on Spotify using Spotipy
                     playlist_name = "objective bangers"
 
-                    playlists = sp.current_user_playlists()
-                    while playlists:
-                        for i, playlist in enumerate(playlists['items']):
-                            print(playlist['name'])
-                            if playlist['name'] == playlist_name:
-                                # Add songs to playlist using Spotipy
-                                sp.user_playlist_add_tracks(user['id'], playlist['id'], [track["uri"]])
-                                st.success(f"{track['name']} by {track['artists'][0]['name']} was added to Objective Bangers")
-                                
-                        if playlists['next']:
-                            playlists = sp.next(playlists)
-                        else:
-                            playlists = None
-
-                        c.execute("UPDATE songs SET added = ? WHERE uri = ?", (True, track["uri"]))
-                        conn.commit()
+                    playlist = sp.playlist("56zW2rCDMc8cJNnCqFW2Sv?si=e4120ad663554ee2")
+                    
+                    #if playlist['name'] == playlist_name:
+                    # Add songs to playlist using Spotipy
+                    sp.user_playlist_add_tracks(user['id'], playlist['id'], [track["uri"]])
+                    st.success(f"{track['name']} by {track['artists'][0]['name']} was added to Objective Bangers")
+                            
+                    c.execute("UPDATE songs SET added = ? WHERE uri = ?", (True, track["uri"]))
+                    conn.commit()
 
 
     # Display table with song suggestions and votes from database using Streamlit
