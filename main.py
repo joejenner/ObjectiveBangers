@@ -89,11 +89,11 @@ if access_token:
             c.execute("SELECT * FROM songs WHERE uri = ?", (track["uri"],))
             row = c.fetchone()
             if row:
-                if len(row[3].split(",")) == 1 and not row[5]:
+                if len(row[3].split(",")) == 2 and not row[5] and user["display_name"] == "joejbailey-gb":
                     # Create playlist on Spotify using Spotipy
                     playlist_name = "objective bangers"
 
-                    playlist = sp.playlist("https://open.spotify.com/playlist/56zW2rCDMc8cJNnCqFW2Sv?si=6e5a271fba244328")
+                    playlist = sp.playlist("https://open.spotify.com/playlist/27umP85d8CGU0hfMW7Vpcf")
                     
                     #if playlist['name'] == playlist_name:
                     # Add songs to playlist using Spotipy
