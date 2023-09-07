@@ -93,7 +93,7 @@ if access_token:
                     # Create playlist on Spotify using Spotipy
                     playlist_name = "objective bangers"
 
-                    playlist = sp.playlist("56zW2rCDMc8cJNnCqFW2Sv?si=e4120ad663554ee2")
+                    playlist = sp.playlist("https://open.spotify.com/playlist/56zW2rCDMc8cJNnCqFW2Sv?si=6e5a271fba244328")
                     
                     #if playlist['name'] == playlist_name:
                     # Add songs to playlist using Spotipy
