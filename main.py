@@ -123,6 +123,6 @@ else:
     if code:
         token_info = sp_oauth.get_access_token(code[0])
         access_token = token_info['access_token']
-        st.session_state['access_token'] = access_token
+        st.session_state.update(access_token=access_token)
         # Reload the page to display the user's profile
         st.experimental_rerun()
