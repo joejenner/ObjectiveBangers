@@ -7,7 +7,7 @@ from spotipy.oauth2 import SpotifyOAuth
 client_id = "ac9f788a554b47418cb1eb398d0e33ae"
 client_secret = "b44d5a71c1624246995e12c76cf8e899"
 redirect_uri = "https://objective-bangers.streamlit.app/" # This should match the redirect URI in your Spotify developer dashboard
-scope = "playlist-modify-public"
+scope = "playlist-modify-collaborative"
 
 conn = sqlite3.connect("songs.db")
 c = conn.cursor()
