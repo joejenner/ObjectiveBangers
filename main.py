@@ -96,6 +96,7 @@ if access_token:
                     playlists = sp.current_user_playlists()
                     while playlists:
                         for i, playlist in enumerate(playlists['items']):
+                            print(playlist['name'])
                             if playlist['name'] == playlist_name:
                                 # Add songs to playlist using Spotipy
                                 sp.user_playlist_add_tracks(user['id'], playlist['id'], [track["uri"]])
