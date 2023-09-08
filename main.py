@@ -113,19 +113,19 @@ if access_token:
 else:
     for key in st.session_state.keys():
         del st.session_state[key]
+    
+    token_info = sp_oauth.get_cached_token()
 
+    
     # If not, display a button that redirects to the Spotify login page
     auth_url = sp_oauth.get_authorize_url()
     st.markdown(f"[Login with Spotify]({auth_url})")
 
     # Get the authorization code from the callback URL
     args = st.experimental_get_query_params()
-    code = args.get('code')
-
-    # If the code exists, exchange it for an access token and store it in the session state
+    code = sp_oauth.parse_response_code(auth_url)
     if code:
-        token_info = sp_oauth.get_access_token(code[0])
+        token_info = sp_oauth.get_access_token(code)
         access_token = token_info['access_token']
+
         st.session_state.update(access_token=access_token)
-        # Reload the page to display the user's profile
-        st.experimental_rerun()
