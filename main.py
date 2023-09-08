@@ -125,7 +125,7 @@ else:
     args = st.experimental_get_query_params()
     code = sp_oauth.parse_response_code(auth_url)
     if code:
-        token_info = sp_oauth.get_access_token(code)
+        token_info = sp_oauth.get_access_token(code[0])
         access_token = token_info['access_token']
 
         st.session_state.update(access_token=access_token)
